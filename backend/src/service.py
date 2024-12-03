@@ -9,6 +9,9 @@ from fcfs import fcfs
 from sstf import sstf
 from scan import scan
 from cscan import cscan
+from look import look
+from clook import clook
+
 
 @app.route("/", methods=['GET'])
 def hello():
@@ -55,10 +58,10 @@ def sched():
     result = scan(arm, requests, tracks)
   elif algorithm == 4:  # CSCAN
     result = cscan(arm, requests, tracks)
-#   elif algorithm == 5:  # LOOK
-#    result = look(arm, requests)
-#  elif algorithm == 6:  # CLOOK
-#    result = clook(arm, requests)
+  elif algorithm == 5:  # LOOK
+   result = look(arm, requests)
+  elif algorithm == 6:  # CLOOK
+   result = clook(arm, requests)
   else:
     return jsonify({"error": "Invalid algorithm"}), 400
   
